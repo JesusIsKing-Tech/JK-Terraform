@@ -27,15 +27,15 @@ resource "aws_instance" "web" {
 
     # Copiando configurações do nginx
     cat > /etc/nginx/sites-available/default <<'NGINX_DEFAULT'
-    ${replace(file("${path.module}/../nginx/default.conf"), "$", "$$")}
+    ${file("${path.module}/../nginx/default.conf")}
     NGINX_DEFAULT
 
     cat > /etc/nginx/conf.d/load-balancer.conf <<'NGINX_LB'
-    ${replace(file("${path.module}/../nginx/load-balancer.conf"), "$", "$$")}
+    ${file("${path.module}/../nginx/load-balancer.conf")}
     NGINX_LB
 
     cat > /etc/nginx/conf.d/reverse-proxy.conf <<'NGINX_RP'
-    ${replace(file("${path.module}/../nginx/reverse-proxy.conf"), "$", "$$")}
+    ${file("${path.module}/../nginx/reverse-proxy.conf")}
     NGINX_RP
 
     systemctl restart nginx

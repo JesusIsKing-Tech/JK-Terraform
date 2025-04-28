@@ -59,3 +59,14 @@ resource "aws_network_acl_rule" "private_egress" {
   from_port      = 0
   to_port        = 0
 }
+
+resource "aws_network_acl_rule" "private_ingress_ssh" {
+  network_acl_id = aws_network_acl.private.id
+  rule_number    = 110
+  egress         = false
+  protocol       = "tcp"
+  rule_action    = "allow"
+  cidr_block     = "10.0.0.0/25" # Sub-rede pública
+  from_port      = 22
+  to_port        = 22
+}
