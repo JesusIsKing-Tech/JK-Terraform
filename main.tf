@@ -28,4 +28,7 @@ module "instances" {
   private_subnet_id  = module.network.private_subnet_id
   sg_web_id          = module.security_groups.sg_web_id
   sg_db_id           = module.security_groups.sg_db_id
+  sg_backend_id      = module.security_groups.sg_backend_id
+  ssh_key_name       = var.ssh_key_name
+  ssh_private_key_path = var.ssh_private_key_path
 }
