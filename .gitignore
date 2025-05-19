@@ -1,0 +1,19 @@
+# Terraform state
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Sensíveis
+*.pem
+*.key
+*.crt
+
+# Arquivo de variáveis pessoais
+terraform.tfvars
+
+# Arquivos de log / output
+*.log
+
+# Outros
+*.swp
+.DS_Store

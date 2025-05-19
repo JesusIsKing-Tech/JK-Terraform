@@ -1,10 +1,10 @@
 output "web_instance_id" {
-  description = "ID da instância pública (Web)"
+  description = "ID da instância pública (Web/Bastion)"
   value       = aws_instance.web.id
 }
 
 output "web_instance_public_ip" {
-  description = "Endereço IP público da instância web"
+  description = "Endereço IP público da instância web/bastion"
   value       = aws_instance.web.public_ip
 }
 
@@ -19,11 +19,21 @@ output "db_instance_private_ip" {
 }
 
 output "backend_instance_id" {
-  description = "ID da instância privada (Backend)"
+  description = "ID da instância privada (Backend 1)"
   value       = aws_instance.backend.id
 }
 
 output "backend_instance_private_ip" {
-  description = "Endereço IP privado da instância Backend"
+  description = "Endereço IP privado da instância Backend 1"
   value       = aws_instance.backend.private_ip
+}
+
+output "backend2_instance_id" {
+  description = "ID da segunda instância privada (Backend 2)"
+  value       = aws_instance.backend2.id
+}
+
+output "backend2_instance_private_ip" {
+  description = "Endereço IP privado da segunda instância Backend 2"
+  value       = aws_instance.backend2.private_ip
 }
